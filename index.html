@@ -607,8 +607,10 @@ function showPage(name) {
   if ((name === 'app' || name === 'settings') && !currentUser) {
     showPage('auth'); return;
   }
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
+  document.querySelectorAll('.page').forEach(p => { p.classList.remove('active'); p.style.display='none'; });
+  const pg = document.getElementById('page-' + name);
+  pg.classList.add('active');
+  pg.style.display = 'block';
   window.scrollTo(0, 0);
 
   if (name === 'app') initAppPage();
