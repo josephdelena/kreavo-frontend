@@ -750,7 +750,7 @@ async function subscribe(plan) {
       window.snap.pay(data.token, {
         onSuccess: async () => {
           await loadUserState();
-          showPage('app');
+          document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")); document.getElementById("page-app").classList.add("active"); window.scrollTo(0,0); initAppPage();
         },
         onPending: () => alert('Pembayaran pending. Cek email kamu.'),
         onError: () => alert('Pembayaran gagal. Coba lagi.'),
