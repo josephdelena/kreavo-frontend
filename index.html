@@ -829,7 +829,7 @@ function renderResult(d) {
 // =============================================
 (async () => {
   await loadUserState();
-  if (currentUser) showPage('app');
+  if (currentUser) { document.querySelectorAll(".page").forEach(p=>p.classList.remove("active")); document.getElementById("page-app").classList.add("active"); window.scrollTo(0,0); initAppPage(); }
 })();
 </script>
 
